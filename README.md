@@ -1,3 +1,8 @@
+
+```bash
+bundle exec jekyll serve
+```
+
 # Jekyll patch — MAV site redesign
 
 This folder mirrors the `monferratoadaltavoce/monferratoadaltavoce.github.io` repository layout. Drop it over your working tree, commit, and push. GitHub Pages will rebuild the site.

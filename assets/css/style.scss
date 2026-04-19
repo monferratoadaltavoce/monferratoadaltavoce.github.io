@@ -136,13 +136,14 @@ main { position: relative; z-index: 2; }
 .hero-img {
   position: absolute; inset: -5%; background-size: cover; background-position: center; will-change: transform, opacity;
   transition: transform .1s linear;
+  filter: brightness(.62) saturate(1.05);
 }
 .hero-img--b { opacity: 0; }
 .hero-scrim {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at center, rgba(0,0,0,.15) 0%, rgba(0,0,0,.5) 100%),
-    linear-gradient(180deg, rgba(20,18,14,.25) 0%, rgba(20,18,14,.55) 100%);
+    radial-gradient(ellipse at center, rgba(0,0,0,.30) 0%, rgba(0,0,0,.65) 100%),
+    linear-gradient(180deg, rgba(20,18,14,.45) 0%, rgba(20,18,14,.75) 100%);
 }
 .hero-skyline {
   position: absolute; left: 0; right: 0; bottom: -2px; width: 100%; height: auto;
