@@ -1,0 +1,151 @@
+# Artists for the current edition. Edit names, bios, photos to update the "I Protagonisti" page.
+# `current` artists render in the main grid; `past_editions` shows photo + name only at the bottom.
+
+current:
+  - name: "Marco Pagani"
+    role: "Direttore Artistico"
+    photo: "/assets/uploads/2022/05/4-MarcoPagani.jpg"
+    bio: ""
+
+  - name: "Bruno Olivieri"
+    photo: "/assets/uploads/2025/05/Bruno_Oivieri-photo-Arcioni-Tiny.jpg"
+    bio: >-
+      Giornalista e direttore creativo, si occupa di comunicazione visiva. Ha al
+      suo attivo anche una lunga storia nello spettacolo, settore nel quale ha
+      ricoperto vari ruoli: attore, direttore di teatro, organizzatore,
+      direttore artistico del Festival dell’Umorismo di Bordighera, una lunga
+      collaborazione con il Teatro dell’Elfo. Dopo *Un anno diverso dagli altri*
+      (Scatole Parlanti, 2022), *Dieci storie (quasi) impossibili* (Edizioni
+      Dialoghi, 2024) è il suo secondo libro di racconti.
+
+  - name: "Jenny De Cesarei"
+    photo: "/assets/uploads/2024/05/PHOTO-2024-04-28-14-23-43.jpg"
+    bio: >-
+      Attrice, doppiatrice, direttrice del doppiaggio, regista. Docente di
+      recitazione, dizione e doppiaggio, presso Mediaset, MTM, Centro Teatro
+      Attivo e Accademia Artisti. Attiva come doppiatrice dal 1997, ha prestato
+      la voce a numerosi personaggi di film, telefilm, anime e videogiochi.
+
+  - name: "Compagnia Il Ronzinante"
+    photo: "/assets/uploads/2025/05/Ronzinante.jpeg"
+    bio: >-
+      Il Ronzinante è formata da Giuliana Atepi, Lorenzo Corengia, Giuliano
+      Gariboldi, Giorgio Mariani, Antonio Takhim, Emiliano Zatelli, Fabio
+      Pozzoli e Corinne Bargetto. È un’associazione di promozione sociale che
+      ha al suo attivo alcune parodie di grandi classici, tra cui La Bibbia,
+      Otello, Cyrano.
+
+  - name: "Oliviero Corbetta"
+    photo: "/assets/uploads/2023/05/DSF0102.jpeg"
+    bio: >-
+      Ha iniziato in teatro nei primi anni ’70, lavorando a lungo con il
+      **Teatro dell’Elfo** di Gabriele Salvatores, con il **Teatro Stabile** di
+      Torino, con lo **Stabile di Trieste**, con il **Gruppo della Rocca**.
+      Nel 2002 ha fondato la **Compagnia Liberipensatori**. Al teatro ha
+      affiancato una lunga militanza presso **Radio Rai** e una intensa
+      attività di doppiatore a Milano e Torino. Ha insegnato per oltre
+      vent’anni presso la scuola Sergio Tofano e l’Accademia Mario Brusa.
+
+  - name: "Matteo Castellan"
+    photo: "/assets/uploads/2023/04/mod-mat-solo-fisa-1-ENHANCED-1-1.jpg"
+    bio: >-
+      Pianista, fisarmonicista, compositore. Si è formato sotto la guida di
+      Aldo Rindone e Luigi Bonafede e in oltre 1000 concerti in Italia e
+      all’estero. Compone musiche di scena per il Teatro Stabile di Torino e
+      dell’Umbria; è partner fisso di Matthias Martelli e Guido Catalano. Tra
+      i suoi progetti: l’**Orchestra da Tre Soldi** (Best Jazz 2008), il duo
+      **“Musica x 2”** con Gianluigi Carlone e il quartetto **Twombao**.
+
+  - name: "Cochi Ponzoni"
+    photo: "/assets/uploads/2024/05/cochi-ponzoni-2.jpg"
+    bio: >-
+      Comico, attore e musicista, inizia la propria carriera nel duo Cochi e
+      Renato per poi distinguersi anche come solista in film come *Il comune
+      senso del pudore*. Tra i progetti più recenti: *Si muore tutti
+      democristiani* (2018) e *Se mi vuoi bene* di Fausto Brizzi.
+
+  - name: "Compagnia Contrasto"
+    photo: "/assets/uploads/2025/05/foto-contrasto-1.jpeg"
+    bio: >-
+      La compagnia Contrasto è composta da 10 giovani attori formatisi presso
+      la scuola di teatro Sergio Tofano a Torino. Hanno mosso i primi passi
+      sul palcoscenico dal 2012 e nel 2017 hanno fondato l’Associazione
+      Culturale Contrasto.
+
+  - name: "Stefania Rosso"
+    photo: "/assets/uploads/2023/05/mod-STEFANIA-ROSSO.jpeg"
+    bio: >-
+      Attrice, autrice, regista, presentatrice, insegnante di recitazione,
+      ideatrice e organizzatrice di eventi. Direttrice artistica della
+      **Liberipensatori Paul Valéry**, ha lavorato con Giuliana Lojodice,
+      Annamaria Guarnieri, Michele Placido, Graziano Piazza, Giorgio Lanza;
+      con gli scrittori Gianluca Favetto, Massimo Gramellini, Giuseppe
+      Culicchia, Giovanni Grasso. Docente di Estetica del gesto e del
+      movimento all’Università di Torino.
+
+  - name: "Camilla Bassetti"
+    photo: "/assets/uploads/2025/05/Camilla-Bassetti.jpeg"
+    bio: >-
+      Drammaturga e attrice, nata a Torino nel 1994. Si laurea in Design e
+      Comunicazione Visiva al Politecnico di Torino, e si forma alla Scuola
+      Sergio Tofano e alla Shakespeare School di Torino diretta da Jurij
+      Ferrini. Nel 2021 fonda con Emily Tartamelli il collettivo *I Signori
+      Delebili Pennarelli*.
+
+  - name: "Martina Michelini"
+    photo: "/assets/uploads/2025/05/Martina-Miichelini-.jpeg"
+    bio: >-
+      Diplomata al Liceo Teatro Nuovo, prosegue la formazione alla scuola di
+      recitazione “Sergio Tofano” diretta da Mario Brusa. Nel 2017 partecipa
+      al workshop “Recitare per il cinema – bringing truth to the camera” di
+      David Warren. Nel 2019 fonda con Luca Catarinella e Bruno Orlando la
+      compagnia teatrale operazioneMIRO.
+
+  - name: "Vince and Friends"
+    photo: "/assets/uploads/2025/05/Vince-and-friends-OK-Tiny.jpg"
+    bio: >-
+      Vincenzo Daldoss, cantautore e frontman di *Le Nuvole* (tributo a De
+      André) e dei *DD Brothers* (omaggio al *Live in Central Park* di Simon
+      and Garfunkel), e Francesco Tolomio, chitarrista jazz/country/classica.
+      Insieme propongono un duo acustico tra cantautorato italiano e
+      tradizione americana. Voce solista e chitarra: Vincenzo Daldoss;
+      chitarra e cori: Francesco Tolomio.
+
+# Past edition artists (photo + name only)
+past_editions:
+  - name: "Marina Massironi"
+    photo: "/assets/uploads/2022/05/1-Marina-Massironi-phMarinaAlessi.jpg"
+  - name: "Claudio Moneta"
+    photo: "/assets/uploads/2022/05/2-Claudio-Moneta-1.jpg"
+  - name: "Elisa Giorgio"
+    photo: "/assets/uploads/2022/05/3-Elisa-Giorgio.jpg"
+  - name: "Antonio Cornacchione"
+    photo: "/assets/uploads/2023/04/Antonio-Cornacchione.jpg"
+  - name: "Aglaia Zannetti"
+    photo: "/assets/uploads/2022/05/6-Aglaia-Zannetti.jpg"
+  - name: "Priscila Ribas e Paulo Zannol"
+    photo: "/assets/uploads/2022/05/7-PauloPriscila.jpg"
+  - name: "Ra-gazze Ladre"
+    photo: "/assets/uploads/2022/05/8-ragazze-ladre.jpeg"
+  - name: "Silvio Notarbartolo"
+    photo: "/assets/uploads/2023/04/mod-PHOTO-2023-02-22-09-22-42-1.jpg"
+  - name: "Michele Sangineto"
+    photo: "/assets/uploads/2023/04/foto-Franco-Maria-Vigano-1.jpeg"
+  - name: "Paolo Pagani"
+    photo: "/assets/uploads/2023/04/Foto.jpg"
+  - name: "Paola Lombardo"
+    photo: "/assets/uploads/2023/04/Paola-Lombardo-copia.jpg"
+  - name: "Manuela Massarenti"
+    photo: "/assets/uploads/2023/04/mod-manuela_massarenti01.jpg"
+  - name: "Luisa Morandini"
+    photo: "/assets/uploads/2022/05/5-Luisa-Morandini.jpg"
+  - name: "Guglielmo Incerti Caselli"
+    photo: "/assets/uploads/2024/05/Guglielmo-sponsor-copia.jpg"
+  - name: "Mattia Bressan"
+    photo: "/assets/uploads/2024/05/IMG_9768.jpg"
+  - name: "Esther Flückiger"
+    photo: "/assets/uploads/2024/05/Fluckiger_Markus-Suter.jpg"
+  - name: "Lucia Sacerdoni"
+    photo: "/assets/uploads/2024/05/71ADE81C-CA2C-446B-9F5B-2E35FF1DFD8A.jpg"
+  - name: "Giuliana Atepi"
+    photo: "/assets/uploads/2023/04/Giuliana-Atepi-1.jpg"

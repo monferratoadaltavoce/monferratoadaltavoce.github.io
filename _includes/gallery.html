@@ -1,0 +1,14 @@
+{%- comment -%}
+  Render a lightbox-ready gallery from `include.images` (array of URLs).
+  Optional: include.id for unique gallery id, include.alt_prefix for alt text.
+{%- endcomment -%}
+{% assign gid = include.id | default: 'gallery' %}
+<ul class="gallery" id="{{ gid }}">
+  {% for img in include.images %}
+  <li>
+    <a href="{{ img | relative_url }}" data-gallery="{{ gid }}">
+      <img src="{{ img | relative_url }}" alt="{{ include.alt_prefix }}{% if include.alt_prefix %} {% endif %}{{ forloop.index }}" loading="lazy">
+    </a>
+  </li>
+  {% endfor %}
+</ul>

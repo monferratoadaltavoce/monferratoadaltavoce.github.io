@@ -1,0 +1,48 @@
+title: Monferrato ad Alta Voce
+tagline: Sussurri d’arte tra le colline
+description: >-
+  Festival di musica e parole a Grazzano Badoglio (Asti), nel cuore del
+  Monferrato Patrimonio UNESCO. Ideato e diretto da Marco Pagani.
+url: "https://monferratoadaltavoce.it"
+lang: it
+locale: it_IT
+
+# Current edition (drives the home page hero)
+edizione:
+  numero: Quinta
+  numero_int: 5
+  anno: 2025
+  date_label: "27-28-29 giugno 2025"
+  date_iso_start: "2025-06-27"
+  date_iso_end: "2025-06-29"
+  tema: "Alla ricerca del maschio perduto"
+  comune: "Grazzano Badoglio (AT)"
+
+# Contact and reservations
+contatti:
+  email: "info@monferratoadaltavoce.it"
+  telefono_pranzo: "+39 328 83 35 609"
+  social:
+    facebook: "https://www.facebook.com/monferratoadaltavoce"
+    instagram: "https://www.instagram.com/monferratoadaltavoce/"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+sass:
+  style: compressed
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - CLAUDE.md
+  - design.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - assets/uploads/_download.log

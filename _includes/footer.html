@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="container">
+    <h2 class="footer-title">Con il sostegno e il patrocinio di</h2>
+    <ul class="partners">
+      {% for p in site.data.partners %}
+      <li>
+        <a href="{{ p.url }}" target="_blank" rel="noopener" title="{{ p.name }}">
+          <img src="{{ p.logo | relative_url }}" alt="{{ p.name }}" loading="lazy">
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <p class="copy">
+      © {{ 'now' | date: '%Y' }} Monferrato ad Alta Voce — All rights reserved
+      &middot; <a href="{{ '/privacy-policy/' | relative_url }}">Privacy Policy</a>
+      &middot; <a href="{{ '/cookie-policy/' | relative_url }}">Cookie Policy</a>
+      &middot; Art direction: <a href="https://www.studioicg.it/" target="_blank" rel="noopener">Studio ICG Milano</a>
+    </p>
+    {% if site.contatti.email or site.contatti.social %}
+    <p class="copy">
+      {% if site.contatti.email %}
+        <a href="mailto:{{ site.contatti.email }}">{{ site.contatti.email }}</a>
+      {% endif %}
+      {% if site.contatti.social.facebook %} &middot; <a href="{{ site.contatti.social.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
+      {% if site.contatti.social.instagram %} &middot; <a href="{{ site.contatti.social.instagram }}" target="_blank" rel="noopener">Instagram</a>{% endif %}
+    </p>
+    {% endif %}
+  </div>
+</footer>

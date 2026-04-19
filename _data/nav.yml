@@ -1,0 +1,14 @@
+# Top-level navigation order. Title is the menu label, url is the page path.
+- title: Home
+  url: /
+- title: Il Programma
+  url: /programma/
+- title: I Protagonisti
+  url: /protagonisti/
+- title: Rassegna Stampa
+  url: /rassegna-stampa/
+- title: Passate Edizioni
+  url: /passate-edizioni/
+- title: Prenota
+  url: /prenota/
+  cta: true
