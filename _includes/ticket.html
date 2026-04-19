@@ -1,0 +1,27 @@
+{%- comment -%}
+  Ticket card. Expects:
+  include.t — item from _data/prenota.yml (day, date, month, year, serata, modifier, events[], cta_url, cta_label)
+{%- endcomment -%}
+{% assign t = include.t %}
+<article class="ticket {% if t.modifier %}ticket--{{ t.modifier }}{% endif %}">
+  <div class="ticket-stub">
+    <p class="ticket-day">{{ t.day }}</p>
+    <p class="ticket-date">{{ t.date }}</p>
+    <p class="ticket-month">{{ t.month }} · {{ t.year }}</p>
+    <p class="ticket-serata">{{ t.serata }}</p>
+  </div>
+  <div class="ticket-body">
+    <ol>
+      {% for ev in t.events %}
+      <li>
+        <span class="time">{{ ev.time }}</span>
+        <span class="title">{{ ev.title }}</span>
+        {% if ev.who %}<span class="who">{{ ev.who }}</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+  <div class="ticket-foot">
+    <a href="{{ t.cta_url }}" target="_blank" rel="noopener" class="btn btn--shine">{{ t.cta_label }}</a>
+  </div>
+</article>

@@ -8,17 +8,16 @@ description: Gli artisti, attori e musicisti della Quinta edizione di Monferrato
 
 <header class="page-header">
   <div class="container">
+    <p class="kicker">{{ site.edizione.numero }} edizione</p>
     <h1>I protagonisti</h1>
     <p class="lede">Gli artisti del Festival</p>
   </div>
 </header>
 
 <section class="container content">
-  <h2 class="text-center">I protagonisti di Monferrato ad alta voce</h2>
-
   <div class="protagonisti">
     {% for p in site.data.protagonisti.current %}
-    <article class="protagonista">
+    <article class="protagonista reveal">
       <div class="protagonista__photo">
         {% if p.photo %}<img src="{{ p.photo | relative_url }}" alt="{{ p.name }}" loading="lazy">{% endif %}
       </div>
@@ -43,4 +42,8 @@ description: Gli artisti, attori e musicisti della Quinta edizione di Monferrato
   </div>
 </section>
 
-<img src="{{ '/assets/img/site/skyline.png' | relative_url }}" alt="" class="skyline" loading="lazy">
+<div class="skyline-band" aria-hidden="true">
+  <img src="{{ '/assets/img/site/skyline.png' | relative_url }}" alt="" loading="lazy">
+</div>
+
+{% include tweaks.html %}

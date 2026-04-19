@@ -1,0 +1,54 @@
+# Prenota — ticket data for the three festival days
+# Edit this file to update what shows on /prenota/
+- day: Venerdì
+  date: 27
+  month: Giugno
+  year: 2025
+  serata: Prima serata
+  modifier: fri
+  events:
+    - time: "19.30"
+      title: "Brindisi d'apertura"
+    - time: "20.00"
+      title: "Dieci storie (quasi) impossibili"
+      who: "Di Bruno Olivieri · Letture di Jenny De Cesarei"
+    - time: "21.30"
+      title: "I Promessi Storti"
+      who: "Compagnia Il Ronzinante"
+  cta_url: "https://www.eventbrite.it/e/1405876788319?aff=oddtdtcreator"
+  cta_label: "Prenota · Venerdì"
+
+- day: Sabato
+  date: 28
+  month: Giugno
+  year: 2025
+  serata: Seconda serata
+  modifier: sat
+  events:
+    - time: "19.00"
+      title: "Capitolo terzo dei Promessi Sposi"
+      who: "Lettura di Oliviero Corbetta · nella Chiesa"
+    - time: "20.00"
+      title: "Musica × 2 — Concerto spettacolo"
+      who: "Gianluigi Carlone · Matteo Castellan · intervento di Cochi Ponzoni"
+    - time: "21.30"
+      title: "Tua Gilda"
+      who: "Compagnia Contrasto"
+  cta_url: "https://www.eventbrite.it/e/1405885093159?aff=oddtdtcreator"
+  cta_label: "Prenota · Sabato"
+
+- day: Domenica
+  date: 29
+  month: Giugno
+  year: 2025
+  serata: La mattinata
+  modifier: sun
+  events:
+    - time: "10.00"
+      title: "Chi cerca trova? — Passeggiata letteraria"
+      who: "Con Camilla Bassetti, Martina Michelini, Stefania Rosso · Partenza dal Cimitero di Grazzano"
+    - time: "13.00"
+      title: "Piatto del camminatore"
+      who: "Pranzo all'Agrimacelleria (10 €) con Vince and Friends · Prenotare al +39 328 833 5609"
+  cta_url: "https://www.eventbrite.it/e/1405889957709?aff=oddtdtcreator"
+  cta_label: "Prenota · Domenica"

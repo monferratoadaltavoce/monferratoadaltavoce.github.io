@@ -1,0 +1,19 @@
+<div id="tweaks-panel" role="dialog" aria-label="Tweaks">
+  <h4>Tweaks</h4>
+  <label>Motion
+    <select id="tw-motion">
+      <option value="full">Full</option>
+      <option value="subtle">Subtle</option>
+      <option value="none">None</option>
+    </select>
+  </label>
+  <label class="check"><input type="checkbox" id="tw-serif"> Serif headline</label>
+  <label class="check"><input type="checkbox" id="tw-grain"> Paper grain texture</label>
+</div>
+<script>
+  window.TWEAKS = /*EDITMODE-BEGIN*/{
+    "motionLevel": "full",
+    "serifHeadings": true,
+    "grainTexture": true
+  }/*EDITMODE-END*/;
+</script>

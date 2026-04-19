@@ -1,57 +1,40 @@
-# monferratoadaltavoce.github.io
+# Jekyll patch — MAV site redesign
 
-Sito ufficiale di **Monferrato ad Alta Voce** — festival di musica e parole
-a Grazzano Badoglio (Asti).
+This folder mirrors the `monferratoadaltavoce/monferratoadaltavoce.github.io` repository layout. Drop it over your working tree, commit, and push. GitHub Pages will rebuild the site.
 
-Sito statico Jekyll, ospitato gratuitamente da **GitHub Pages**.
-
-## Sviluppo locale
-
-Richiede **Ruby 3.3.x** (non Ruby 4.x — il gem `github-pages` non è ancora
-compatibile con Ruby 4). Su macOS con Homebrew:
+## How to apply
 
 ```bash
-brew install ruby@3.3
-export PATH="/opt/homebrew/opt/ruby@3.3/bin:$PATH"
-bundle config set --local path 'vendor/bundle'
-bundle install            # una sola volta
-bundle exec jekyll serve  # http://localhost:4000
+git clone git@github.com:monferratoadaltavoce/monferratoadaltavoce.github.io.git
+cd monferratoadaltavoce.github.io
+
+# Copy the patch contents over the working tree (replace existing files, add new ones)
+cp -R /path/to/jekyll-patch/* .
+
+# Review if you want
+git status
+git diff
+
+# Commit and push
+git add .
+git commit -m "Redesign: parallax hero, ticket cards, masonry press, tweaks panel"
+git push
 ```
 
-Il sito si rigenera automaticamente ad ogni `push` sul branch `main` —
-GitHub Pages compila Jekyll lato server.
+## What changes
 
-## Aggiornare i contenuti
+- `_layouts/default.html` — adds paper-grain SVG, site-wide JS, Tweaks mount
+- `_includes/header.html` — scroll-state class + animated underline hooks (logic moves to site.js)
+- `_includes/hero.html` — **NEW** — dual-image parallax banner for home
+- `_includes/ticket.html` — **NEW** — ticket-stub card for prenota
+- `_includes/tweaks.html` — **NEW** — in-page tweak controls
+- `assets/css/style.scss` — ADDITIVE block appended at bottom (existing rules untouched)
+- `assets/js/site.js` — **NEW** — reveal, parallax, lightbox, year-rail, tweaks, nav
+- `index.md` — uses hero include, adds parallax band + scroll reveals
+- `prenota.md` — loops tickets from `_data/prenota.yml`
+- `rassegna-stampa.md` — tilted-masonry class + radio CTA restyle
+- `passate-edizioni.md` — sticky year rail + lightbox-ready gallery
+- `protagonisti.md` — reveal-on-scroll classes
+- `_data/prenota.yml` — **NEW** — ticket data
 
-Le modifiche più frequenti (programma annuale, protagonisti, gallerie,
-rassegna stampa, partner) si fanno editando i file in `_data/` e i pochi
-file Markdown nella root. Vedi **`CLAUDE.md`** per la guida completa e
-**`design.md`** per il sistema visuale (entrambi non pubblicati).
-
-## Struttura
-
-```
-_config.yml          # metadati sito + edizione corrente
-_layouts/            # default.html, page.html
-_includes/           # header, footer, gallery
-_data/               # nav, partners, protagonisti, edizioni, stampa
-assets/css/          # style.scss (unico foglio di stile)
-assets/img/          # logo, favicon, skyline, partners
-assets/uploads/      # tutte le foto/video (mirror dei vecchi upload WP)
-*.md                 # le pagine
-```
-
-## Dominio
-
-Custom domain configurato via `CNAME` → `monferratoadaltavoce.it`.
-Per attivarlo, configurare i record DNS:
-
-- `A` su 185.199.108.153, .109.153, .110.153, .111.153 (apex)
-- `CNAME` di `www` → `monferratoadaltavoce.github.io`
-
-Poi su GitHub: *Settings → Pages → Custom domain* + *Enforce HTTPS*.
-
-## Crediti
-
-- Direzione artistica festival: Marco Pagani
-- Art direction (originale WP): [Studio ICG Milano](https://www.studioicg.it/)
+Reverting: `git checkout HEAD~1 -- .` will restore the previous site.
