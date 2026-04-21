@@ -2,7 +2,7 @@
 layout: default
 title: Home
 permalink: /
-description: Festival di musica e parole a Grazzano Badoglio nel cuore del Monferrato. Quinta edizione 27-28-29 giugno 2025.
+description: Festival di musica e parole a Grazzano Badoglio nel cuore del Monferrato. Sesta edizione 12-13-14 giugno 2026.
 ---
 
 {% include hero.html %}

@@ -1,54 +1,54 @@
-# Prenota — ticket data for the three festival days
-# Edit this file to update what shows on /prenota/
+# Prenota — ticket data for the three festival days.
+# Edit this file to update what shows on /prenota/.
+# TODO: replace empty cta_url values once 2026 Eventbrite events are created.
+
 - day: Venerdì
-  date: 27
+  date: 12
   month: Giugno
-  year: 2025
+  year: 2026
   serata: Prima serata
   modifier: fri
   events:
     - time: "19.30"
-      title: "Brindisi d'apertura"
-    - time: "20.00"
-      title: "Dieci storie (quasi) impossibili"
-      who: "Di Bruno Olivieri · Letture di Jenny De Cesarei"
+      title: "«Bartleby, lo scrivano»"
+      who: "Di Herman Melville · Narrato da Oliviero Corbetta e Igor Tognazzo · Fisarmonica di Matteo Castellan · Abbazia di Aleramo, Terrazzo"
     - time: "21.30"
-      title: "I Promessi Storti"
-      who: "Compagnia Il Ronzinante"
-  cta_url: "https://www.eventbrite.it/e/1405876788319?aff=oddtdtcreator"
+      title: "Bird Lives! La leggenda di Charlie Parker"
+      who: "Cochi Ponzoni e Gabriele Comeglio Quartet · Abbazia di Aleramo, Sagrato"
+  cta_url: ""
   cta_label: "Prenota · Venerdì"
 
 - day: Sabato
-  date: 28
+  date: 13
   month: Giugno
-  year: 2025
-  serata: Seconda serata
+  year: 2026
+  serata: Seconda giornata
   modifier: sat
   events:
-    - time: "19.00"
-      title: "Capitolo terzo dei Promessi Sposi"
-      who: "Lettura di Oliviero Corbetta · nella Chiesa"
-    - time: "20.00"
-      title: "Musica × 2 — Concerto spettacolo"
-      who: "Gianluigi Carlone · Matteo Castellan · intervento di Cochi Ponzoni"
+    - time: "10.00"
+      title: "American’s Breakfast + Gruppo di lettura"
+      who: "Ex scuola di Grazzano · Su prenotazione"
+    - time: "19.30"
+      title: "I Poeti della Beat Generation + American Dust"
+      who: "Voci: Rosso, Toniazzo, Pagani, Corbetta · American Dust: Sonya Milan Patton e Gregory Jack Patton; letture di Ben Best e Francesca Pagani · Abbazia di Aleramo, Terrazzo"
     - time: "21.30"
-      title: "Tua Gilda"
-      who: "Compagnia Contrasto"
-  cta_url: "https://www.eventbrite.it/e/1405885093159?aff=oddtdtcreator"
+      title: "«Novecento» di Alessandro Baricco"
+      who: "Narrato da Jenny De Cesarei e Giuliana Atepi · Al piano Matteo Castellan · Abbazia di Aleramo, Sagrato"
+  cta_url: ""
   cta_label: "Prenota · Sabato"
 
 - day: Domenica
-  date: 29
+  date: 14
   month: Giugno
-  year: 2025
-  serata: La mattinata
+  year: 2026
+  serata: Mattinata
   modifier: sun
   events:
-    - time: "10.00"
-      title: "Chi cerca trova? — Passeggiata letteraria"
-      who: "Con Camilla Bassetti, Martina Michelini, Stefania Rosso · Partenza dal Cimitero di Grazzano"
+    - time: "11.00"
+      title: "Eva — Studio N.45"
+      who: "Liberamente tratto da Mark Twain · Con Giulia Cerino e Vincenzo Leone · Regia di Emily Tartamelli · Sala Combattenti e Reduci"
     - time: "13.00"
-      title: "Piatto del camminatore"
-      who: "Pranzo all'Agrimacelleria (10 €) con Vince and Friends · Prenotare al +39 328 833 5609"
-  cta_url: "https://www.eventbrite.it/e/1405889957709?aff=oddtdtcreator"
+      title: "Hamburger, Cheeseburger & See you soon"
+      who: "Con Vince & Friends (Vincenzo Daldoss e Francesco Tolomio) · Agrimacelleria di Grazzano · Prenotazione al +39 328 833 5609"
+  cta_url: ""
   cta_label: "Prenota · Domenica"

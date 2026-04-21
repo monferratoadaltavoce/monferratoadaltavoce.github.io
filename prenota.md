@@ -3,7 +3,7 @@ layout: default
 title: Prenota il tuo posto
 permalink: /prenota/
 subtitle: Riserva il tuo posto al festival
-description: Prenota il tuo posto agli eventi della Quinta edizione di Monferrato ad Alta Voce, 27-28-29 giugno 2025.
+description: Prenota il tuo posto agli eventi della Sesta edizione di Monferrato ad Alta Voce, 12-13-14 giugno 2026.
 ---
 
 <header class="page-header">
@@ -31,7 +31,7 @@ description: Prenota il tuo posto agli eventi della Quinta edizione di Monferrat
   <div class="container">
     <div class="info-callout reveal">
       <strong>Il pranzo di domenica</strong>
-      Il <em>Piatto del camminatore</em> richiede prenotazione separata entro venerdì 27 giugno al numero <a href="tel:+393288335609">{{ site.contatti.telefono_pranzo }}</a>. Costo: 10 €, include degustazione vini locali.
+      Il pranzo di chiusura <em>Hamburger, Cheeseburger &amp; See you soon</em> all’Agrimacelleria di Grazzano richiede prenotazione separata entro venerdì 12 giugno 2026 al numero <a href="tel:+393288335609">{{ site.contatti.telefono_pranzo }}</a>.
     </div>
   </div>
 </section>
