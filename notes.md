@@ -1,5 +1,131 @@
 
-## 2026-04-21 
+
+## 2026-04-21.c map?
+
+What's the best way to incorporate a Google Maps of different locations for this festival website?                                                    
+                                                                                                     
+⏺ Since every venue is within a few minutes' walk of each other in Grazzano Badoglio, I'd lean toward a static/illustrated map with numbered pins — each
+   pin an <a> to https://www.google.com/maps?q=<lat>,<lng> that opens in the user's default maps app — rather than embedding a live Google iframe. That
+  keeps the page cookie-free (your posture is Iubenda-managed minimal cookies, and a live Google embed pulls in tracking JS that would need the banner  
+  updated) and on-brand with the paper/skyline aesthetic, while still giving visitors one-tap directions.
+                                                                                                                                                        
+  The main tradeoff: a live embedded Google Map is more familiar and supports in-page pan/zoom/Street View, but the grey Material tiles fight the       
+  literary look and the iframe is ~500KB of third-party JS for a six-venue walk. If you do want interactive pan/zoom without Google, Leaflet +          
+  OpenStreetMap tiles (~40KB, no cookies, can be styled to match the palette) is the nicest middle ground — worth it only if you expect visitors        
+  exploring the broader Monferrato, otherwise overkill. 
+                                                                                                                                                        
+  Want me to mock up option 1 (static illustrated map) or option 3 (Leaflet+OSM) once you have venue coordinates?             
+
+Resume this session with:
+claude --resume "port-claude-design-content" 
+
+## 2026-04-21.b punch list
+
+Help me organize next steps to complete the overhaul of the website for 2026, including (but not limited to):
+
+1. Update the EventBrite links - Rewrite the three day entries to match the 2026 programma summary. Eventbrite
+  URLs are not yet known for 2026 — leave them as "" placeholder strings with
+ a YAML comment noting they need to be supplied once Eventbrite events are
+ created for this edition.
+
+2. Update the `protagonisti.md` / `_data/protagonisti.yml` — the design bundle's
+ protagonisti.html still shows the 2025 lineup. When the
+ user has the 2026 artist list, this will need a separate refresh: adding Igor
+  Tognazzo, Gabriele Comeglio, Claudio Angeleri, Marco Esposito, Federico
+ Monti, Sonya Milan Patton, Gregory Jack Patton, Ben Best, Francesca Pagani,
+ Giulia Cerino, Vincenzo Leone, Emily Tartamelli; and promoting Giuliana Atepi
+  + Paolo Pagani from past_editions: to current:.
+
+...
+
+⏺ Here's a **PUNCH LIST** grouped by what's blocking what. Ordered roughly by
+  dependency.                                                                
+                    
+  1. **External inputs** you need to gather:
+                                                                               
+  - **Eventbrite** — create 3 events (Ven / Sab / Dom 12–13–14 giugno 2026). Once  
+  they exist, drop the URLs into _data/prenota.yml (currently "").
+
+  - **2026 artists' photos + bios** — for the 12 new names in the programma: Igor  
+  Tognazzo, Gabriele Comeglio, Claudio Angeleri, Marco Esposito, Federico      
+  Monti, Sonya Milan Patton, Gregory Jack Patton, Ben Best, Francesca Pagani,
+  Giulia Cerino, Vincenzo Leone, Emily Tartamelli. One photo + one paragraph   
+  each, same shape as existing _data/protagonisti.yml entries.
+
+  - **2026 locandina/poster image** — the other editions each have one in
+  _data/edizioni.yml; you'll want one for the current edition too (probably    
+  used on passate-edizioni.md next year, and possibly in social OG images now).
+
+  - **2025 Quinta-edizione assets to archive** — locandina, photo gallery, videos, 
+  any press clippings from last June. These promote the 2025 edition into      
+  _data/edizioni.yml and _data/stampa.yml.
+                                                                               
+  2. **Content edits** (once the inputs above are in hand)                         
+  
+  - **_data/protagonisti.yml** — full refresh:                                     
+    - Add the 12 new artists to current:.               
+    - Promote Giuliana Atepi and Paolo Pagani from past_editions: → current:.  
+    - Demote the 2025-only names to past_editions:: Bruno Olivieri, Compagnia  
+  Il Ronzinante, Compagnia Contrasto, Camilla Bassetti, Martina Michelini.     
+    - Keep ongoing: Marco Pagani, Jenny De Cesarei, Oliviero Corbetta, Matteo  
+  Castellan, Cochi Ponzoni, Stefania Rosso, Vince and Friends.                 
+  - **_data/edizioni.yml** — add a - year: 2025 block at the top (Quinta Edizione,
+  locandina, gallery, videos).                                                 
+  - **_data/stampa.yml** — add a - year: 2025 block for press from the
+  just-finished edition, if any.                                               
+  - **_data/prenota.yml** — fill the three cta_url placeholders once Eventbrite is
+  live.                                                                        
+                                                        
+  3. **Stylistic patch** from the design bundle (the "separately" pass we deferred)
+                                                        
+  Everything under /tmp/design-update/monferrato-ad-alta-voce-github-website/pr
+  oject/jekyll-patch/ except the .md content files and prenota.yml:
+                                                                               
+  - `_layouts/default.html` — paper-grain SVG, site.js wiring, tweaks mount.     
+  - `_includes/header.html` — scroll-state class + animated underlines.
+  - `_includes/ticket.html`, `_includes/tweaks.html` — new partials.               
+  - `assets/css/style.scss` — an additive block for paper grain, ticket stubs,   
+  big-date + day-rail, tilted masonry, year-rail, lightbox, tweaks panel.      
+  - `assets/js/site.js` — reveal, parallax, lightbox, year-rail, tweaks, nav.    
+                                                                               
+  Recommendation: one PR, applied additively (the bundle's README promises it  
+  leaves existing selectors untouched). Before adopting, re-grep style.scss for
+   collisions (.ticket, .day-rail, .big-date, .year-rail, .parallax-band — I   
+  already know most are absent, but worth checking). Once SCSS is in, you can
+  also upgrade programma.md to the richer .ev-time / .ev-type / .ev-performers
+  card structure that the bundle uses.
+
+  4. **Audit & cleanup**
+
+  - `grep -rn "Quinta\|2025\|27-28\|maschio perduto" --include="*.md" --include="*.yml" --include="*.html"` 
+     and triage each hit: either update, or legitimately historical (e.g. past-editions data).                           
+  - Confirm the hero banner image is final — the chat iterated through a few (header_OK-tiny.jpg, home.jpg, 
+    intro-grazzano-badoglio599.jpg). We're on the last one.
+  - `notes.md` is untracked — commit or add to .gitignore.                       
+  - Optional: stub redirects for old WP URLs (`/il-programma/`, `/prenota-il-tuo-posto/`, `/i-protagonisti/`) per CLAUDE.md.                     
+                                                                               
+  5. **Ship**
+                                                        
+  - `bundle exec jekyll serve --livereload`; walk every page on desktop + mobile.
+  - `git push`; GH Pages rebuilds.
+                                                                               
+  Suggested execution order                                                    
+   
+  1. Kick off Eventbrite event creation and the 2026 artist collection — those 
+  have the longest lead time because they depend on other people.
+  2. While waiting: apply the stylistic patch (section 3) — independent of any 
+  content still coming.                                                        
+  3. Also while waiting: archive the 2025 edition into edizioni.yml /
+  stampa.yml — independent too.                                                
+  4. When inputs arrive: protagonisti refresh, prenota Eventbrite URLs.
+  5. Audit + ship.                                                             
+                                                        
+  Want me to start on any of these? The stylistic patch and the 2025-archive   
+  migration are both good autonomous next steps since they don't need external
+  input.
+
+
+## 2026-04-21 text, banner, programma for 2026
 
 Read this set of updated *.html files at https://api.anthropic.com/v1/design/h/XjihHizITIj2MF2N0aNO3g and write content updates to the relevant markdown *.md files and sections. We will seperately process the stylistic changes, so try for now to only focus on text and image changes.
 
@@ -80,13 +206,12 @@ Read this set of updated *.html files at https://api.anthropic.com/v1/design/h/X
 
  3. `_includes/hero.html` — Hero banner image
 
- Swap the hero image from /assets/uploads/2025/06/header_OK-tiny.jpg to the
- new banner image at /assets/uploads/2026/04/intro-grazzano-badoglio599.jpg
+ Swap the hero image from `/assets/uploads/2025/06/header_OK-tiny.jpg` to the
+ new banner image at `/assets/uploads/2026/04/intro-grazzano-badoglio599.jpg`
  (both the live line 6 and the commented-out line 3 for consistency).
 
- Also copy the new image file from /tmp/design-update/monferrato-ad-alta-voce-
- github-website/project/uploads/intro-grazzano-badoglio599.jpg →
- assets/uploads/2026/04/intro-grazzano-badoglio599.jpg. (Create the 2026/04/
+ Also copy the new image file from `/tmp/design-update/monferrato-ad-alta-voce-github-website/project/uploads/intro-grazzano-badoglio599.jpg` →
+ `assets/uploads/2026/04/intro-grazzano-badoglio599.jpg`. (Create the `2026/04/`
  directory; it doesn't exist yet.)
 
  4. `programma.md` — Full rewrite for Sesta edizione 2026
@@ -297,3 +422,8 @@ Read this set of updated *.html files at https://api.anthropic.com/v1/design/h/X
   changes (new SCSS, new .ev-* / .day-rail / .big-date classes, new partials   
   for parallax/tickets/lightbox/tweaks) deferred to the follow-up pass as
   requested.
+
+※ recap: Goal was porting the claude.ai/design bundle's text and image updates 
+  into the Jekyll site for the Sesta edizione 2026. All six files are updated, 
+  Jekyll builds cleanly, and changes are unstaged. Next: review `git diff` and 
+  commit. (disable recaps in /config)
