@@ -29,9 +29,10 @@ description: Prenota il tuo posto agli eventi della Sesta edizione di Monferrato
   </div>
 
   <div class="container">
-    <div class="info-callout reveal">
-      <strong>Il pranzo di domenica</strong>
-      Il pranzo di chiusura <em>Hamburger, Cheeseburger &amp; See you soon</em> all’Agrimacelleria di Grazzano richiede prenotazione separata entro venerdì 12 giugno 2026 al numero <a href="tel:+393288335609">{{ site.contatti.telefono_pranzo }}</a>.
+    <div class="info-callout reveal" style="font-family: var(--font-sans); font-style: normal;">
+      <strong>La colazione americana e il pranzo di domenica</strong>
+      La colazione americana (costo 10 Euro) richiede prenotazione obbligatoria su Eventbrite.<br>
+      Il pranzo Hamburger, Cheeseburger, See you soon (costo 15 Euro) richiede prenotazione obbligatoria su Eventbrite.
     </div>
   </div>
 </section>
