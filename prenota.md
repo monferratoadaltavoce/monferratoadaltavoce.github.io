@@ -10,11 +10,11 @@ description: Prenota il tuo posto agli eventi della Sesta edizione di Monferrato
   <div class="container">
     <p class="kicker">{{ site.edizione.date_label }}</p>
     <h1>Prenota il tuo posto</h1>
-    <p class="lede">L'ingresso è libero. La prenotazione è gratuita ma necessaria.</p>
+    <p class="lede">L'ingresso è libero ma la prenotazione e’ necessaria.</p>
   </div>
 </header>
 
-<section class="section">
+<section class="section" style="padding: 20px 0 80px">
   <div class="container">
     <div class="prenota-intro reveal">
       <span class="prenota-badge">Ingresso gratuito</span>

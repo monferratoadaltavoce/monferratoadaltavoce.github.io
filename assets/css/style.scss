@@ -156,7 +156,7 @@ main { position: relative; z-index: 2; }
   color: rgba(255,255,255,.88); margin: 0 0 1rem;
 }
 .hero--banner h1 {
-  font-family: $font-serif; font-weight: 600; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -.025em;
+  font-family: 'Montserrat', $font-sans; font-weight: 900; font-size: clamp(3rem, 8vw, 6rem); letter-spacing: -.025em;
   color: white; margin: 0 0 1rem; text-shadow: 0 4px 30px rgba(0,0,0,.35);
 }
 .hero-tagline {
@@ -430,6 +430,7 @@ body.tw-motion-none .reveal, body.tw-motion-none .reveal-target { opacity: 1 !im
 body.tw-motion-none .hero-img { transform: none !important; }
 body.tw-motion-subtle .hero-img--b { display: none; }
 body.tw-serif :is(h1, h2, h3) { font-family: $font-serif; font-weight: 600; letter-spacing: -.02em; }
+body.tw-serif .hero--banner h1 { font-family: 'Montserrat', $font-sans; font-weight: 900; }
 body:not(.has-grain)::before { display: none; }
 
 // ─── Footer ──────────────────────────────────────────────────────────────
@@ -460,3 +461,120 @@ body:not(.has-grain)::before { display: none; }
   .hero-img { transform: none !important; }
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+// ════════════════════════════════════════════════════════════════════════════
+// Patch — May 2026
+// PASTE THE CONTENTS OF THIS FILE AT THE END OF assets/css/style.scss
+// (just before the closing of the file, after the @media reduced-motion block).
+//
+// This patch:
+//   - Restyles the hero (Montserrat headline + new subtagline line)
+//   - Adds rules for the rebuilt ticket card internals (stub-*, t-time, ...)
+//   - Adds per-event inline CTAs on Saturday breakfast + Sunday show + Sunday lunch
+//
+// Old ticket selectors in the original file (.ticket-day, .ticket-date, .time,
+// .title, .who, etc.) become dead code once the new _includes/ticket.html is in
+// place. They're harmless to leave behind, but you can delete them if you want.
+// ════════════════════════════════════════════════════════════════════════════
+
+// ─── Hero typography (override) ─────────────────────────────────────────────
+.hero--banner h1 {
+  font-family: 'Montserrat', $font-sans;
+  font-weight: 800;
+  font-style: normal;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  letter-spacing: -.02em;
+  color: #fff;
+  margin: 0 0 1rem;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, .35);
+}
+.hero-tagline {
+  font-family: 'Montserrat', $font-sans;
+  font-weight: 900;
+  font-style: normal;
+  font-size: clamp(1.4rem, 2.8vw, 2.25rem);
+  color: #fff;
+  margin: 0 0 .6rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, .4);
+}
+.hero-subtagline {
+  font-family: 'Montserrat', $font-sans;
+  font-weight: 600;
+  font-style: normal;
+  font-size: clamp(1rem, 1.6vw, 1.6rem);
+  color: rgba(255, 255, 255, .92);
+  margin: 0 0 1.75rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, .35);
+}
+
+// ─── Ticket card internals — new naming ─────────────────────────────────────
+// These match the new _includes/ticket.html (stub-day/date/month/serata, etc.)
+.stub-day { font-family: $font-serif; font-weight: 600; font-style: italic; color: $brand-green-dk; font-size: .95rem; margin: 0; }
+.ticket--fri .stub-day, .ticket--sat .stub-day { color: $brand-red-dk; }
+.ticket--sun .stub-day { color: #b88a2f; }
+.stub-date { font-family: $font-serif; font-weight: 600; font-size: clamp(3rem, 6vw, 4.5rem); line-height: .9; color: $color-ink; margin: .3rem 0 .2rem; letter-spacing: -.03em; }
+.stub-month { font-family: $font-sans; text-transform: uppercase; letter-spacing: .2em; font-size: .72rem; font-weight: 700; color: $color-muted; margin: 0 0 .4rem; }
+.stub-serata { font-family: $font-sans; font-size: .82rem; color: $color-ink; font-weight: 600; margin: 0; }
+
+.ticket-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    position: relative;
+    padding: .9rem 0 .9rem 4.2rem;
+    border-bottom: 1px solid $color-rule;
+    &:last-child { border-bottom: 0; }
+  }
+  .t-time {
+    position: absolute; left: 0; top: 1rem;
+    font-family: $font-sans; font-weight: 700; font-size: .78rem;
+    color: $brand-red-dk; letter-spacing: .06em;
+  }
+  h3 { font-family: $font-serif; font-weight: 700; color: $color-ink; font-size: 1rem; line-height: 1.3; margin: 0 0 .2rem; }
+  p { font-size: .82rem; color: $color-muted; line-height: 1.45; margin: 0; }
+}
+.ticket--sun .ticket-events .t-time { color: #b88a2f; }
+
+.ticket-cta {
+  margin-top: 1.25rem;
+  .btn { display: block; text-align: center; width: 100%; }
+}
+
+// ─── Per-event inline CTAs (food / show buttons inside a ticket row) ────────
+.ticket-events li.has-cta .t-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .55rem;
+}
+.ticket-events li.has-cta:has(.btn--food) {
+  background: linear-gradient(180deg, rgba(212, 169, 74, .06), rgba(212, 169, 74, 0));
+}
+.ticket-events li.has-cta:has(.btn--show) {
+  background: linear-gradient(180deg, rgba(184, 91, 92, .05), rgba(184, 91, 92, 0));
+}
+
+.btn--small {
+  padding: .55rem 1rem;
+  font-size: .78rem;
+  letter-spacing: .08em;
+}
+.btn--food {
+  background: #b88a2f;
+  color: #fff;
+  border-color: #b88a2f;
+  box-shadow: 0 2px 6px rgba(184, 138, 47, .25);
+  margin-top: .35rem;
+  &:hover { background: #a07623; border-color: #a07623; color: #fff; }
+}
+.btn--show {
+  background: $brand-red;
+  color: #fff;
+  border-color: $brand-red;
+  box-shadow: 0 2px 6px rgba(184, 91, 92, .25);
+  margin-top: .35rem;
+  &:hover:not(:disabled) { background: $brand-red-dk; border-color: $brand-red-dk; color: #fff; }
+  &:disabled { cursor: not-allowed; }
+}
+

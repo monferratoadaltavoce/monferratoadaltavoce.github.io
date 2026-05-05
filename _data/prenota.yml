@@ -1,6 +1,12 @@
 # Prenota — ticket data for the three festival days.
 # Edit this file to update what shows on /prenota/.
-# TODO: replace empty cta_url values once 2026 Eventbrite events are created.
+#
+# Day-level CTA: set cta_url + cta_label for a button at the bottom of the card.
+#   Leave cta_url empty (or remove it) to omit the bottom button — use this for
+#   days where every event already has its own inline CTA.
+#
+# Per-event CTA: each event can have its own button by adding cta_url + cta_label.
+# cta_modifier controls the button color: "food" (warm/yellow) or "show" (accent).
 
 - day: Venerdì
   date: 12
@@ -15,7 +21,7 @@
     - time: "21.30"
       title: "Bird Lives! La leggenda di Charlie Parker"
       who: "Cochi Ponzoni e Gabriele Comeglio Quartet · Abbazia di Aleramo, Sagrato"
-  cta_url: ""
+  cta_url: "https://www.eventbrite.com/e/biglietti-venerdi-bartleby-lo-scrivano-bird-lives-la-leggenda-di-charlie-parker-1988071411108?aff=oddtdtcreator"
   cta_label: "Prenota · Venerdì"
 
 - day: Sabato
@@ -28,13 +34,16 @@
     - time: "10.00"
       title: "American’s Breakfast + Gruppo di lettura"
       who: "Ex scuola di Grazzano · Su prenotazione"
+      cta_url: "https://www.eventbrite.com/e/biglietti-colazione-americans-breakfast-gruppo-di-lettura-1988073009890?aff=oddtdtcreator"
+      cta_label: "Prenota · colazione"
+      cta_modifier: food
     - time: "19.30"
       title: "I Poeti della Beat Generation + American Dust"
       who: "Voci: Rosso, Toniazzo, Pagani, Corbetta · American Dust: Sonya Milan Patton e Gregory Jack Patton; letture di Ben Best e Francesca Pagani · Abbazia di Aleramo, Terrazzo"
     - time: "21.30"
       title: "«Novecento» di Alessandro Baricco"
       who: "Narrato da Jenny De Cesarei e Giuliana Atepi · Al piano Matteo Castellan · Abbazia di Aleramo, Sagrato"
-  cta_url: ""
+  cta_url: "https://www.eventbrite.com/e/1988072232565?aff=oddtdtcreator"
   cta_label: "Prenota · Sabato"
 
 - day: Domenica
@@ -47,8 +56,15 @@
     - time: "11.00"
       title: "Eva — Studio N.45"
       who: "Liberamente tratto da Mark Twain · Con Giulia Cerino e Vincenzo Leone · Regia di Emily Tartamelli · Sala Combattenti e Reduci"
+      cta_url: "https://www.eventbrite.it/e/biglietti-domenica-eva-studio-n45-1988072729050?aff=oddtdtcreator"
+      cta_label: "Prenota · Domenica"
+      cta_modifier: show
     - time: "13.00"
       title: "Hamburger, Cheeseburger & See you soon"
-      who: "Con Vince & Friends (Vincenzo Daldoss e Francesco Tolomio) · Agrimacelleria di Grazzano · Prenotazione al +39 328 833 5609"
+      who: "Con Vince & Friends (Vincenzo Daldoss e Francesco Tolomio) · Agrimacelleria di Grazzano · Prenotazione entro 12 giugno"
+      cta_url: "https://www.eventbrite.com/e/biglietti-pranzo-hamburger-cheeseburger-see-you-soon-1988073073079?aff=oddtdtcreator"
+      cta_label: "Prenota · pranzo"
+      cta_modifier: food
+  # No day-level CTA — each event has its own inline button.
   cta_url: ""
-  cta_label: "Prenota · Domenica"
+  cta_label: ""

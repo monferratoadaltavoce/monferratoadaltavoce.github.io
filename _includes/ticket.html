@@ -1,27 +1,38 @@
 {%- comment -%}
   Ticket card. Expects:
-  include.t — item from _data/prenota.yml (day, date, month, year, serata, modifier, events[], cta_url, cta_label)
+  include.t — item from _data/prenota.yml. Fields:
+    day, date, month, year, serata, modifier
+    events[]: time, title, who, cta_url (optional), cta_label (optional), cta_modifier (optional: "food" | "show")
+    cta_url, cta_label  — day-level CTA at the bottom of the card. If cta_url is empty/missing, the bottom CTA is omitted (use this for days where every event already has its own CTA).
 {%- endcomment -%}
 {% assign t = include.t %}
 <article class="ticket {% if t.modifier %}ticket--{{ t.modifier }}{% endif %}">
   <div class="ticket-stub">
-    <p class="ticket-day">{{ t.day }}</p>
-    <p class="ticket-date">{{ t.date }}</p>
-    <p class="ticket-month">{{ t.month }} · {{ t.year }}</p>
-    <p class="ticket-serata">{{ t.serata }}</p>
+    <div class="stub-day">{{ t.day }}</div>
+    <div class="stub-date">{{ t.date }}</div>
+    <div class="stub-month">{{ t.month }} {{ t.year }}</div>
+    <div class="stub-serata">{{ t.serata }}</div>
   </div>
   <div class="ticket-body">
-    <ol>
+    <ol class="ticket-events">
       {% for ev in t.events %}
-      <li>
-        <span class="time">{{ ev.time }}</span>
-        <span class="title">{{ ev.title }}</span>
-        {% if ev.who %}<span class="who">{{ ev.who }}</span>{% endif %}
+      {% assign has_cta = ev.cta_url | default: "" %}
+      <li{% if has_cta != "" %} class="has-cta"{% endif %}>
+        <span class="t-time">{{ ev.time }}</span>
+        <div{% if has_cta != "" %} class="t-info"{% endif %}>
+          <h3>{{ ev.title }}</h3>
+          {% if ev.who %}<p>{{ ev.who }}</p>{% endif %}
+          {% if has_cta != "" %}
+            <a href="{{ ev.cta_url }}" target="_blank" rel="noopener" class="btn btn--small btn--{{ ev.cta_modifier | default: 'food' }}">{{ ev.cta_label }}</a>
+          {% endif %}
+        </div>
       </li>
       {% endfor %}
     </ol>
-  </div>
-  <div class="ticket-foot">
-    <a href="{{ t.cta_url }}" target="_blank" rel="noopener" class="btn btn--shine">{{ t.cta_label }}</a>
+    {% if t.cta_url and t.cta_url != "" %}
+    <div class="ticket-cta">
+      <a class="btn btn--shine" href="{{ t.cta_url }}" target="_blank" rel="noopener">{{ t.cta_label }}</a>
+    </div>
+    {% endif %}
   </div>
 </article>
