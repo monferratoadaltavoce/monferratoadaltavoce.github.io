@@ -533,6 +533,7 @@ body:not(.has-grain)::before { display: none; }
   }
   h3 { font-family: $font-serif; font-weight: 700; color: $color-ink; font-size: 1rem; line-height: 1.3; margin: 0 0 .2rem; }
   p { font-size: .82rem; color: $color-muted; line-height: 1.45; margin: 0; }
+  .t-price { font-weight: 700; color: $color-ink; font-size: .85rem; margin: .15rem 0 0; }
 }
 .ticket--sun .ticket-events .t-time { color: #b88a2f; }
 

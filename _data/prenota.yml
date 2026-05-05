@@ -34,6 +34,7 @@
     - time: "10.00"
       title: "American’s Breakfast + Gruppo di lettura"
       who: "Ex scuola di Grazzano · Su prenotazione"
+      price: "10 €"
       cta_url: "https://www.eventbrite.com/e/biglietti-colazione-americans-breakfast-gruppo-di-lettura-1988073009890?aff=oddtdtcreator"
       cta_label: "Prenota · colazione"
       cta_modifier: food
@@ -62,6 +63,7 @@
     - time: "13.00"
       title: "Hamburger, Cheeseburger & See you soon"
       who: "Con Vince & Friends (Vincenzo Daldoss e Francesco Tolomio) · Agrimacelleria di Grazzano · Prenotazione entro 12 giugno"
+      price: "15 €"
       cta_url: "https://www.eventbrite.com/e/biglietti-pranzo-hamburger-cheeseburger-see-you-soon-1988073073079?aff=oddtdtcreator"
       cta_label: "Prenota · pranzo"
       cta_modifier: food
