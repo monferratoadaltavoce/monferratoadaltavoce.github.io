@@ -1,0 +1,159 @@
+{%- comment -%}
+  Static illustrated map of festival venues — single source for both
+  /programma/ and /prenota/. Data comes from _data/luoghi.yml.
+
+  Each pin is an <a> linking to https://www.google.com/maps?q=lat,lng
+  which opens in the user's default maps app on mobile and in Google Maps
+  on desktop. No embedded JS, no third-party cookies, no tracking.
+
+  The basemap (streets + buildings) is precomputed from OpenStreetMap
+  via Overpass API and lives in _includes/luoghi-basemap.html. The
+  projection used to bake those paths matches the one below, so pins
+  and streets line up.
+
+  Pin positions are computed in Liquid using the same projection:
+
+    lat_top   = 45.0420   (north edge, smaller y in SVG)
+    lon_left  = 8.3090    (west edge)
+    x_scale   = 106054    (= 78.5 km/° × 1351 px/km, lon at 45° lat)
+    y_scale   = 149961    (= 111 km/° × 1351 px/km)
+    x_origin  = 129       (px offset to centre map content horizontally)
+    y_origin  = 80        (px padding above the map content)
+
+  100 m on the map = 135 px (drives the scale bar).
+{%- endcomment -%}
+
+{%- assign lat_top   = 45.0420 -%}
+{%- assign lon_left  = 8.3090  -%}
+{%- assign x_scale   = 106054  -%}
+{%- assign y_scale   = 149961  -%}
+{%- assign x_origin  = 129     -%}
+{%- assign y_origin  = 80      -%}
+
+<section class="luoghi-map reveal" aria-labelledby="luoghi-map-title">
+  <div class="container">
+    <header class="luoghi-map__head">
+      <p class="kicker">Mappa del borgo</p>
+      <h2 id="luoghi-map-title">I luoghi del festival</h2>
+      <p class="luoghi-map__sub">Grazzano Badoglio (AT) · tocca un numero per aprire le indicazioni stradali</p>
+    </header>
+
+    <div class="luoghi-map__frame">
+      <svg viewBox="0 0 1000 760" class="luoghi-map__svg"
+           role="img" aria-labelledby="luoghi-map-svg-title luoghi-map-svg-desc"
+           xmlns="http://www.w3.org/2000/svg">
+        <title id="luoghi-map-svg-title">Mappa illustrata dei luoghi del festival</title>
+        <desc id="luoghi-map-svg-desc">Mappa di Grazzano Badoglio con strade ed edifici. Quattro pin numerati indicano le sedi del festival. Una lista cliccabile dei luoghi è disponibile sotto la mappa.</desc>
+
+        <!-- Paper background -->
+        <rect x="0" y="0" width="1000" height="760" fill="#FAF8F4"/>
+
+        <!-- Hilltop contour hints — subtle, peek through gaps in the village -->
+        <g fill="none" stroke="#8DC183" stroke-width="1" opacity="0.18" stroke-dasharray="2,5">
+          <ellipse cx="600" cy="400" rx="380" ry="240"/>
+          <ellipse cx="600" cy="400" rx="280" ry="170"/>
+          <ellipse cx="600" cy="400" rx="180" ry="105"/>
+        </g>
+
+        <!-- OSM basemap: buildings + streets (© OpenStreetMap contributors) -->
+{% include luoghi-basemap.html %}
+
+        <!-- Deckle / dashed inner border — drawn over basemap so it always shows -->
+        <rect x="20" y="20" width="960" height="720" rx="3"
+              fill="none" stroke="#D9D0BE" stroke-width="1.4" stroke-dasharray="2,5"/>
+
+        <!-- Pins — generated from _data/luoghi.yml -->
+        {%- for v in site.data.luoghi -%}
+          {%- assign pin_x = v.lng | minus: lon_left | times: x_scale | plus: x_origin | round -%}
+          {%- assign pin_y = lat_top | minus: v.lat | times: y_scale | plus: y_origin | round -%}
+          {%- assign hit_y = pin_y | minus: 22 -%}
+          {%- if v.type == "food" -%}
+            {%- assign pin_fill = "#b88a2f" -%}
+            {%- assign pin_stroke = "#7a5b1d" -%}
+          {%- else -%}
+            {%- assign pin_fill = "#B85B5C" -%}
+            {%- assign pin_stroke = "#8E3F40" -%}
+          {%- endif -%}
+        <a href="https://www.google.com/maps?q={{ v.lat }},{{ v.lng }}"
+           target="_blank" rel="noopener"
+           aria-label="Apri {{ v.name }} ({{ v.address }}) in Google Maps">
+          <title>{{ v.name }} — apri le indicazioni</title>
+          <!-- Generous transparent hit target for easier tapping on mobile -->
+          <circle cx="{{ pin_x }}" cy="{{ hit_y }}" r="34" fill="transparent"/>
+          <!-- Outer <g> positions the pin (SVG transform attribute).
+               Inner <g> is the CSS hover target — it has no transform attribute,
+               so CSS transforms compose cleanly without snapping to (0,0). -->
+          <g transform="translate({{ pin_x }} {{ pin_y }})">
+            <g class="luoghi-map__pin">
+              <ellipse cx="0" cy="3" rx="14" ry="3.5" fill="rgba(20,18,14,0.28)"/>
+              <path d="M 0,2 C -10,-2 -22,-12 -22,-30 a 22,22 0 1,1 44,0 C 22,-12 10,-2 0,2 Z"
+                    fill="{{ pin_fill }}" stroke="{{ pin_stroke }}" stroke-width="1.5"/>
+              <text x="0" y="-23" text-anchor="middle"
+                    fill="#FAF8F4"
+                    font-family="'Libre Franklin', system-ui, sans-serif"
+                    font-weight="800" font-size="20">{{ v.n }}</text>
+            </g>
+          </g>
+        </a>
+        {%- endfor -%}
+
+        <!-- Compass rose -->
+        <g transform="translate(925 95)">
+          <circle r="26" fill="#FAF8F4" stroke="#D9D0BE" stroke-width="1.2"/>
+          <polygon points="0,-20 5,0 0,-3 -5,0" fill="#B85B5C"/>
+          <polygon points="0,20 5,0 0,3 -5,0" fill="#A39B89"/>
+          <text x="0" y="-30" text-anchor="middle"
+                fill="#1A1A1A" font-family="'Libre Franklin', sans-serif"
+                font-weight="700" font-size="11" letter-spacing="2">N</text>
+        </g>
+
+        <!-- Scale bar: 0 — 100 m (= 135 px at our projection scale) -->
+        <g transform="translate(70 700)">
+          <rect x="-6" y="-22" width="160" height="34" fill="#FAF8F4" opacity="0.85" rx="2"/>
+          <line x1="0" y1="0" x2="135" y2="0" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square"/>
+          <line x1="0" y1="-5" x2="0" y2="5" stroke="#1A1A1A" stroke-width="2"/>
+          <line x1="67.5" y1="-3" x2="67.5" y2="3" stroke="#1A1A1A" stroke-width="1.5"/>
+          <line x1="135" y1="-5" x2="135" y2="5" stroke="#1A1A1A" stroke-width="2"/>
+          <text x="0" y="-9" fill="#6F6A62"
+                font-family="'Libre Franklin', sans-serif" font-size="11" letter-spacing="0.5">0</text>
+          <text x="135" y="-9" text-anchor="end" fill="#6F6A62"
+                font-family="'Libre Franklin', sans-serif" font-size="11" letter-spacing="0.5">100 m</text>
+        </g>
+
+        <!-- Place name -->
+        <text x="500" y="725" text-anchor="middle"
+              fill="#6F6A62" font-family="'Cormorant Garamond', Georgia, serif"
+              font-style="italic" font-size="22" letter-spacing="1">Grazzano Badoglio</text>
+
+        <!-- OSM attribution (required by ODbL) -->
+        <text x="985" y="748" text-anchor="end"
+              fill="#9C9485" font-family="'Libre Franklin', sans-serif" font-size="9"
+              letter-spacing="0.3">basemap © OpenStreetMap contributors</text>
+      </svg>
+    </div>
+
+    <ol class="luoghi-legend" aria-label="Elenco dei luoghi">
+      {%- for v in site.data.luoghi -%}
+      <li class="luoghi-legend__item">
+        <a class="luoghi-legend__link luoghi-legend__link--{{ v.type }}"
+           href="https://www.google.com/maps?q={{ v.lat }},{{ v.lng }}"
+           target="_blank" rel="noopener"
+           aria-label="Apri {{ v.name }} in Google Maps">
+          <span class="luoghi-legend__num" aria-hidden="true">{{ v.n }}</span>
+          <span class="luoghi-legend__body">
+            <strong>{{ v.name }}</strong>
+            {%- if v.subtitle %}<em>{{ v.subtitle }}</em>{% endif -%}
+            <span class="luoghi-legend__addr">{{ v.address }}</span>
+            {%- if v.when -%}
+            <span class="luoghi-legend__when">
+              {%- for w in v.when -%}<span>{{ w }}</span>{%- endfor -%}
+            </span>
+            {%- endif -%}
+          </span>
+          <span class="luoghi-legend__arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>

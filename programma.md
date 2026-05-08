@@ -17,6 +17,7 @@ description: Il programma completo della Sesta edizione di Monferrato ad Alta Vo
 <section class="container content text-center">
   <p class="section-kicker">Il tema della sesta edizione</p>
   <h2 class="theme-line">«{{ site.edizione.tema }}»</h2>
+  <p class="theme-tagline">{{ site.edizione.tema_sub }}</p>
 </section>
 
 <section class="container content">
@@ -119,6 +120,8 @@ description: Il programma completo della Sesta edizione di Monferrato ad Alta Vo
     <p class="text-center mt-2"><a href="{{ '/prenota/' | relative_url }}" class="btn">Prenota il tuo posto</a></p>
   </div>
 </section>
+
+{% include luoghi-map.html %}
 
 <section class="section">
   <div class="container text-center">

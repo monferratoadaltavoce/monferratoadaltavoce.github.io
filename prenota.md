@@ -37,6 +37,8 @@ description: Prenota il tuo posto agli eventi della Sesta edizione di Monferrato
   </div>
 </section>
 
+{% include luoghi-map.html %}
+
 <div class="skyline-band" aria-hidden="true">
   <img src="{{ '/assets/img/site/skyline.png' | relative_url }}" alt="" loading="lazy">
 </div>

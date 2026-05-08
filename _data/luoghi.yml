@@ -1,0 +1,51 @@
+# Festival venues — single source of truth for the map shown on
+# /programma/ and /prenota/. Render via {% include luoghi-map.html %}.
+#
+# Each entry:
+#   n        — pin number shown on the map (1..N)
+#   name     — short venue name (legend)
+#   subtitle — optional secondary line (e.g. "Chiostro · Terrazzo")
+#   address  — street address shown beneath the name
+#   lat,lng  — geographic coordinates; drive both the pin position on the SVG
+#              (projected with a cos(45°) longitude correction) and the
+#              Google Maps link `?q=lat,lng` that opens in the user's maps app
+#   type     — "show" (performance, brand-red) or "food" (warm amber)
+#   when     — optional list of event mentions at this venue (free text)
+
+- n: 1
+  name: "Abbazia di Aleramo"
+  subtitle: "Chiostro · Terrazzo · Sagrato"
+  address: "Via SS. Vittore e Corona, 6"
+  lat: 45.039711
+  lng: 8.3138112
+  type: show
+  when:
+    - "Venerdì 12 · ore 19.30 e 21.30"
+    - "Sabato 13 · ore 19.30 e 21.30"
+
+- n: 2
+  name: "Ex Scuola di Grazzano"
+  address: "Via Aleramo"
+  lat: 45.0396828
+  lng: 8.3130416
+  type: food
+  when:
+    - "Sabato 13 · ore 10.00 — Colazione & lettura"
+
+- n: 3
+  name: "Sala Combattenti e Reduci"
+  address: "Via Giuseppe Mazzini"
+  lat: 45.0389251
+  lng: 8.3147897
+  type: show
+  when:
+    - "Domenica 14 · ore 11.00"
+
+- n: 4
+  name: "Agrimacelleria di Grazzano"
+  address: "Via Dante Alighieri 14"
+  lat: 45.0415486
+  lng: 8.31093
+  type: food
+  when:
+    - "Domenica 14 · ore 13.00 — Pranzo"

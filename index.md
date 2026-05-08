@@ -11,6 +11,7 @@ description: Festival di musica e parole a Grazzano Badoglio nel cuore del Monfe
   <div class="container">
     <h2 class="reveal">Il tema della {{ site.edizione.numero | downcase }} edizione</h2>
     <p class="theme-line reveal">«{{ site.edizione.tema }}»</p>
+    <p class="theme-tagline reveal">{{ site.edizione.tema_sub }}</p>
 
     <div class="two-col">
       <div class="col-text reveal">

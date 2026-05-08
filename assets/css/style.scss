@@ -182,7 +182,12 @@ main { position: relative; z-index: 2; }
 // ─── Theme line (home) ────────────────────────────────────────────────────
 .theme-line {
   text-align: center; font-family: $font-serif; font-style: italic; font-weight: 600;
-  font-size: clamp(1.6rem, 3.5vw, 2.6rem); color: $brand-red; margin: 1rem 0 2.5rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem); color: $brand-red; margin: 1rem 0 1rem;
+}
+.theme-tagline {
+  text-align: center; font-family: $font-serif; font-style: italic;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.55;
+  color: $color-muted; max-width: 720px; margin: 0 auto 2.5rem;
 }
 
 // ─── Parallax band ────────────────────────────────────────────────────────
@@ -579,3 +584,147 @@ body:not(.has-grain)::before { display: none; }
   &:disabled { cursor: not-allowed; }
 }
 
+// ─── Luoghi map (programma + prenota) ──────────────────────────────────────
+$food-color:    #b88a2f;
+$food-color-dk: #7a5b1d;
+
+.luoghi-map {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background: $color-paper;
+  border-top: 1px solid $color-rule;
+  border-bottom: 1px solid $color-rule;
+  position: relative;
+  z-index: 2;
+}
+.luoghi-map__head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  .kicker { margin-bottom: .35rem; }
+  h2 {
+    margin: 0 0 .5rem;
+    &::after {
+      content: ""; display: block; width: 60px; height: 3px;
+      background: $brand-green; margin: .75rem auto 0;
+    }
+  }
+  .luoghi-map__sub {
+    font-family: $font-serif; font-style: italic;
+    color: $color-muted; font-size: 1.05rem; margin: 0;
+  }
+}
+
+.luoghi-map__frame {
+  max-width: 1000px; margin: 0 auto; padding: .5rem;
+  background: $color-bg;
+  border: 1px solid $color-rule;
+  border-radius: 4px;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, .04),
+    0 18px 44px rgba(0, 0, 0, .06);
+}
+.luoghi-map__svg {
+  width: 100%; height: auto; display: block;
+  border-radius: 3px;
+}
+
+// SVG <a> hover/focus — animate the visible pin only.
+.luoghi-map__svg a { cursor: pointer; outline: none; }
+.luoghi-map__svg a:focus { outline: none; }
+.luoghi-map__pin {
+  transition: transform .25s $ease-out, filter .25s $ease-out;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .18));
+}
+.luoghi-map__svg a:hover .luoghi-map__pin,
+.luoghi-map__svg a:focus-visible .luoghi-map__pin {
+  transform: translateY(-4px) scale(1.07);
+  filter: drop-shadow(0 7px 10px rgba(0, 0, 0, .26));
+}
+// Visible focus ring for keyboard users (drawn over the transparent hit area)
+.luoghi-map__svg a:focus-visible .luoghi-map__pin path {
+  stroke-width: 3;
+  stroke: $color-ink;
+}
+
+// ── Legend (textual fallback + click target on mobile) ──
+.luoghi-legend {
+  list-style: none; margin: 1.75rem auto 0; padding: 0;
+  display: grid; grid-template-columns: 1fr; gap: .85rem;
+  max-width: 1000px;
+  @media (min-width: $breakpoint-md) { grid-template-columns: 1fr 1fr; gap: 1rem; }
+}
+.luoghi-legend__item { margin: 0; }
+.luoghi-legend__link {
+  display: flex; gap: 1rem; align-items: flex-start;
+  text-decoration: none; color: $color-ink;
+  background: $color-paper;
+  border: 1px solid $color-rule;
+  border-left: 4px solid $brand-red;
+  border-radius: 3px;
+  padding: 1rem 1.1rem;
+  transition:
+    transform .25s $ease-out,
+    box-shadow .25s $ease-out,
+    border-left-color .25s,
+    color .25s;
+  &:hover, &:focus-visible {
+    color: $color-ink;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .08);
+    text-decoration: none;
+  }
+  &--food { border-left-color: $food-color; }
+}
+.luoghi-legend__num {
+  flex: 0 0 auto;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: $brand-red; color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: $font-sans; font-weight: 800; font-size: 1.05rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .14);
+  .luoghi-legend__link--food & { background: $food-color; }
+}
+.luoghi-legend__body {
+  flex: 1 1 auto; line-height: 1.4; min-width: 0;
+  strong {
+    display: block; font-family: $font-sans; font-weight: 700;
+    font-size: 1rem; color: $color-ink; margin: .15rem 0;
+  }
+  em {
+    font-style: italic; font-family: $font-serif;
+    font-size: .92rem; color: $color-muted;
+    display: block; margin: 0 0 .15rem;
+  }
+}
+.luoghi-legend__addr {
+  font-size: .82rem; color: $color-muted; display: block;
+}
+.luoghi-legend__when {
+  display: block; margin-top: .4rem;
+  font-size: .78rem; color: $color-muted; letter-spacing: .02em;
+  span { display: block; }
+  span + span { margin-top: .15rem; }
+}
+.luoghi-legend__arrow {
+  flex: 0 0 auto; align-self: center;
+  font-size: 1.15rem; color: $color-muted;
+  transition: transform .25s $ease-out, color .25s;
+  .luoghi-legend__link:hover &,
+  .luoghi-legend__link:focus-visible & {
+    transform: translate(2px, -2px); color: $brand-red-dk;
+  }
+  .luoghi-legend__link--food:hover &,
+  .luoghi-legend__link--food:focus-visible & { color: $food-color-dk; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luoghi-map__pin,
+  .luoghi-legend__link,
+  .luoghi-legend__arrow { transition: none !important; }
+  .luoghi-map__svg a:hover .luoghi-map__pin,
+  .luoghi-map__svg a:focus-visible .luoghi-map__pin { transform: none; }
+  .luoghi-legend__link:hover,
+  .luoghi-legend__link:focus-visible { transform: none; }
+}
