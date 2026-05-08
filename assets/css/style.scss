@@ -628,6 +628,21 @@ $food-color-dk: #7a5b1d;
   border-radius: 3px;
 }
 
+// Street name labels (textPath along OSM ways) — paper halo + serif italic
+.luoghi-map__labels text {
+  font-family: $font-serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  fill: #6F5E47;
+  paint-order: stroke;
+  stroke: #FAF8F4;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
 // SVG <a> hover/focus — animate the visible pin only.
 .luoghi-map__svg a { cursor: pointer; outline: none; }
 .luoghi-map__svg a:focus { outline: none; }
