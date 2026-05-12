@@ -21,7 +21,7 @@ description: Festival di musica e parole a Grazzano Badoglio nel cuore del Monfe
       </div>
       <div class="reveal">
         <div class="video-embed">
-          <iframe src="https://player.vimeo.com/video/1189324048?title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <iframe src="https://player.vimeo.com/video/1189324048?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
       </div>
     </div>
