@@ -180,5 +180,8 @@ venire…"). Use:
 - No carousels. Galleries are grids; the hero is a single still + video.
 - No long-scroll parallax. Sections are flat and quiet.
 - No icons except the partner logos.
-- No newsletter signup, no popup, no cookie banner (Iubenda handles it
-  externally if needed).
+- No newsletter signup, no popup, no cookie banner. The site sets zero
+  first-party cookies; the only third-party embed is Vimeo in DNT mode,
+  and Eventbrite is link-out only — so no consent prompt is required.
+  (The old WordPress site used Iubenda for this; the Jekyll rebuild
+  retired it.)

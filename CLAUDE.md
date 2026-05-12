@@ -168,7 +168,12 @@ the SCSS variables in `assets/css/style.scss` (`$brand-green`, `$brand-red`,
 - **Don't add a CMS or blog.** Content cadence is ~once a year; Markdown is
   the right level of friction.
 - **Don't add tracking/analytics** without a chat first — privacy posture is
-  minimal-cookies, Iubenda-managed.
+  zero first-party cookies, no analytics, no consent banner. Third-party
+  embeds are limited to Vimeo (Do-Not-Track mode) and outbound Eventbrite
+  links. Adding anything that sets cookies (GA, Hotjar, Meta Pixel, live
+  map tiles, embedded widgets) would put us back over the banner threshold.
+  The self-hosted policies at `/privacy-policy/` and `/cookie-policy/`
+  replaced the old WordPress-era Iubenda-hosted versions.
 - **Don't reintroduce Elementor / WordPress markup.** The HTML in the WXR
   export was Elementor-generated and full of inline styles + lightbox data
   attrs. The migration intentionally stripped all of that.

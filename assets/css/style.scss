@@ -2,6 +2,87 @@
 # Front matter forces Jekyll/Sass to process this file.
 ---
 
+// ─── Self-hosted webfonts ───────────────────────────────────────────────────
+// woff2 files in /assets/fonts/ replace the former Google Fonts CDN load.
+
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/libre-franklin-v20-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url('/assets/fonts/libre-franklin-v20-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url('/assets/fonts/libre-franklin-v20-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal; font-weight: 900; font-display: swap;
+  src: url('/assets/fonts/libre-franklin-v20-latin-900.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/cormorant-garamond-v21-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/cormorant-garamond-v21-latin-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url('/assets/fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic; font-weight: 600; font-display: swap;
+  src: url('/assets/fonts/cormorant-garamond-v21-latin-600italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url('/assets/fonts/cormorant-garamond-v21-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url('/assets/fonts/montserrat-v31-latin-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url('/assets/fonts/montserrat-v31-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url('/assets/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 800; font-display: swap;
+  src: url('/assets/fonts/montserrat-v31-latin-800.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 900; font-display: swap;
+  src: url('/assets/fonts/montserrat-v31-latin-900.woff2') format('woff2');
+}
+
 // ─── Brand tokens ───────────────────────────────────────────────────────────
 $color-bg:        #FAF8F4;        // warm off-white
 $color-paper:     #FFFFFF;

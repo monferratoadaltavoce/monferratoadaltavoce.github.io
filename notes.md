@@ -4,10 +4,7 @@
 
 What's the best way to incorporate a Google Maps of different locations for this festival website?                                                    
                                                                                                      
-⏺ Since every venue is within a few minutes' walk of each other in Grazzano Badoglio, I'd lean toward a static/illustrated map with numbered pins — each
-   pin an <a> to https://www.google.com/maps?q=<lat>,<lng> that opens in the user's default maps app — rather than embedding a live Google iframe. That
-  keeps the page cookie-free (your posture is Iubenda-managed minimal cookies, and a live Google embed pulls in tracking JS that would need the banner  
-  updated) and on-brand with the paper/skyline aesthetic, while still giving visitors one-tap directions.
+⏺ Since every venue is within a few minutes' walk of each other in Grazzano Badoglio, I'd lean toward a static/illustrated map with numbered pins — each pin an <a> to https://www.google.com/maps?q=<lat>,<lng> that opens in the user's default maps app — rather than embedding a live Google iframe. That keeps the page cookie-free (your posture is minimal cookies (Iubenda-managed at the time these notes were written, during the WordPress era), and a live Google embed pulls in tracking JS that would force a consent banner) and on-brand with the paper/skyline aesthetic, while still giving visitors one-tap directions.
                                                                                                                                                         
   The main tradeoff: a live embedded Google Map is more familiar and supports in-page pan/zoom/Street View, but the grey Material tiles fight the       
   literary look and the iframe is ~500KB of third-party JS for a six-venue walk. If you do want interactive pan/zoom without Google, Leaflet +          
@@ -18,6 +15,18 @@ What's the best way to incorporate a Google Maps of different locations for this
 
 Resume this session with:
 claude --resume "port-claude-design-content" 
+
+Now that we have the locations for the venues: `@~/Downloads/luoghi - MAV 2026 - Sheet1.csv`
+Please proceed with adding a static illustrated map with numbered pins - each pin an <a> to https://www.google.com/maps?q=<lat>,<lng> that opens in the user's default maps app. That keeps the page cookie-free (your posture is minimal cookies (Iubenda-managed at the time these notes were written, during the WordPress era), and a live Google embed pulls in tracking JS that would force a consent banner) and on-brand with the paper/skyline aesthetic, while still giving visitors one-tap directions.
+
+
+
+Venerdi 12	200		Chiostro della Basilica di Aleramo	Via SS. Vittore e Corona, 6		Grazzano Badoglio	Asti	14035	
+Sabato 13 Colazione	50	Ex Scuola		via Aleramo		Grazzano Badoglio	Asti	14035	
+Sabato 13	200	sul terrazzo dell’Abbazia		Via SS. Vittore e Corona, 6		Grazzano Badoglio	Asti	14035	
+Domenica 14	200	sala Combattenti e Reduci		via Giuseppe Mazzini		Grazzano Badoglio	Asti	14035	
+Domenica 14 Hambuger	50	Agrimacelleria Grazzano Badoglio		via Dante Alighieri 14		Grazzano Badoglio	Asti	14035	
+
 
 ## 2026-04-21.b punch list
 
