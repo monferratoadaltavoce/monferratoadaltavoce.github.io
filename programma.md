@@ -91,6 +91,10 @@ description: Il programma completo della Sesta edizione di Monferrato ad Alta Vo
       <p><strong>12 e 13 giugno · nel chiostro — Esposizione temporanea:</strong> <em>Music Party Portraits</em>, opere di <strong>Paolo Pagani</strong>. Un artista-ritrattista che predilige l’acquerello — per questa mostra si è divertito a giocare coi volti delle grandi rockstars americane.</p>
     </article>
 
+    <article class="event event--note">
+      <p><strong>12 e 13 giugno · nel chiostro — Mostra fotografica:</strong> opere di <strong>Luciano Bobba</strong> dedicate ad <em>Allen Ginsberg</em>.</p>
+    </article>
+
     <p class="text-center mt-2"><a href="{{ '/prenota/' | relative_url }}" class="btn">Prenota il tuo posto</a></p>
   </div>
 </section>
